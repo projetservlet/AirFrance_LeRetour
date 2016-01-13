@@ -7,12 +7,12 @@
 
   <servlet>
     <description>Servlet Bienvenue</description>
-    <display-name>HomepageServlet</display-name>
-    <servlet-name>HomepageServlet</servlet-name>
-    <servlet-class>controllers.HomepageServlet</servlet-class>
+    <display-name>RedirectHomepageServlet</display-name>
+    <servlet-name>RedirectHomepageServlet</servlet-name>
+    <servlet-class>controllers.RedirectHomepageServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>HomepageServlet</servlet-name>
+    <servlet-name>RedirectHomepageServlet</servlet-name>
     <url-pattern>/homepage</url-pattern>
   </servlet-mapping>
 
@@ -40,34 +40,46 @@
 
   <servlet>
     <description>Servlet Bienvenue</description>
-    <display-name>SearchResultsServlet</display-name>
-    <servlet-name>SearchResultsServlet</servlet-name>
-    <servlet-class>controllers.SearchResultsServlet</servlet-class>
+    <display-name>GetSearchResultsServlet</display-name>
+    <servlet-name>GetSearchResultsServlet</servlet-name>
+    <servlet-class>controllers.GetSearchResultsServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SearchResultsServlet</servlet-name>
+    <servlet-name>GetSearchResultsServlet</servlet-name>
     <url-pattern>/searchResults</url-pattern>
   </servlet-mapping>
 
   <servlet>
     <description>Servlet Bienvenue</description>
-    <display-name>ReservationSummary</display-name>
-    <servlet-name>ReservationSummary</servlet-name>
-    <servlet-class>controllers.ReservationSummary</servlet-class>
+    <display-name>RedirectReservationSummaryServlet</display-name>
+    <servlet-name>RedirectReservationSummaryServlet</servlet-name>
+    <servlet-class>controllers.RedirectReservationSummaryServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ReservationSummary</servlet-name>
-    <url-pattern>/reservationSummary</url-pattern>
+    <servlet-name>RedirectReservationSummaryServlet</servlet-name>
+    <url-pattern>/redirectReservationSummary</url-pattern>
   </servlet-mapping>
 
   <servlet>
     <description>Servlet Bienvenue</description>
-    <display-name>RoutingServlet</display-name>
-    <servlet-name>RoutingServlet</servlet-name>
-    <servlet-class>controllers.RoutingServlet</servlet-class>
+    <display-name>RedirectSigninServlet</display-name>
+    <servlet-name>RedirectSigninServlet</servlet-name>
+    <servlet-class>controllers.RedirectSigninServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>RoutingServlet</servlet-name>
-    <url-pattern>/routing</url-pattern>
+    <servlet-name>RedirectSigninServlet</servlet-name>
+    <url-pattern>/redirectSignin</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <description>Servlet Bienvenue</description>
+    <display-name>RedirectSignupServlet</display-name>
+    <servlet-name>RedirectSignupServlet</servlet-name>
+    <servlet-class>controllers.RedirectSignupServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RedirectSignupServlet</servlet-name>
+    <url-pattern>/redirectSignup</url-pattern>
+  </servlet-mapping>
+
 </web-app>
