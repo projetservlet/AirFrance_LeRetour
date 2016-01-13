@@ -1,0 +1,3 @@
+<footer>
+    Air France, trademark...
+</footer>
