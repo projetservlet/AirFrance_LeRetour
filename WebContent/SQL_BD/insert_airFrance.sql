@@ -90,7 +90,7 @@ INSERT INTO `bdairfrance`.`aeroport`
 `code`,
 `ville_idVille`)
 VALUES
-("AÃ©roport de Paris-Charles-de-Gaulle",
+("Aéroport de Paris-Charles-de-Gaulle",
 "CDG",
 "1");
 
@@ -99,7 +99,7 @@ INSERT INTO `bdairfrance`.`aeroport`
 `code`,
 `ville_idVille`)
 VALUES
-("AÃ©roport de Paris-Orly",
+("Aéroport de Paris-Orly",
 "ORY",
 "1");
 
@@ -108,7 +108,7 @@ INSERT INTO `bdairfrance`.`aeroport`
 `code`,
 `ville_idVille`)
 VALUES
-("AÃ©roport de Toulouse-Blagnac",
+("Aéroport de Toulouse-Blagnac",
 "TLS",
 "2");
 
@@ -117,7 +117,7 @@ INSERT INTO `bdairfrance`.`aeroport`
 `code`,
 `ville_idVille`)
 VALUES
-("AÃ©roport de Londres-Heathrow",
+("Aéroport de Londres-Heathrow",
 "LHR",
 "3");
 
@@ -126,7 +126,7 @@ INSERT INTO `bdairfrance`.`aeroport`
 `code`,
 `ville_idVille`)
 VALUES
-("AÃ©roport international de New York-John F. Kennedy",
+("Aéroport international de New York-John F. Kennedy",
 "JFK",
 "4");
 
@@ -135,7 +135,7 @@ INSERT INTO `bdairfrance`.`aeroport`
 `code`,
 `ville_idVille`)
 VALUES
-("AÃ©roport de New York-LaGuardia",
+("Aéroport de New York-LaGuardia",
 "LGA",
 "4");
 
@@ -144,7 +144,7 @@ INSERT INTO `bdairfrance`.`aeroport`
 `code`,
 `ville_idVille`)
 VALUES
-("AÃ©roport international de Los Angeles",
+("Aéroport international de Los Angeles",
 "LAX",
 "5");
 
@@ -153,7 +153,7 @@ INSERT INTO `bdairfrance`.`aeroport`
 `code`,
 `ville_idVille`)
 VALUES
-("AÃ©roport international de Boston-Logan",
+("Aéroport international de Boston-Logan",
 "BOS",
 "6");
 
@@ -162,7 +162,7 @@ INSERT INTO `bdairfrance`.`aeroport`
 `code`,
 `ville_idVille`)
 VALUES
-("AÃ©roport de Berlin-SchÃ¶nefeld",
+("Aéroport de Berlin-Schönefeld",
 "SFX",
 "7");
 
