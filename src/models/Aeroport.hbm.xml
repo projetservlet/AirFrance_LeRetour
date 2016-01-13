@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 janv. 2016 15:16:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="models.Aeroport" table="aeroport" catalog="bdairfrance">
+        <id name="idAeroport" type="java.lang.Integer">
+            <column name="idAeroport" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="ville" class="models.Ville" fetch="select">
+            <column name="ville_idVille" not-null="true" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="nom" length="45" />
+        </property>
+        <set name="volsForIdAeroportDepart" table="vol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_aeroport_depart" not-null="true" />
+            </key>
+            <one-to-many class="models.Vol" />
+        </set>
+        <set name="volsForIdAeroportArrivee" table="vol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_aeroport_arrivee" not-null="true" />
+            </key>
+            <one-to-many class="models.Vol" />
+        </set>
+    </class>
+</hibernate-mapping>

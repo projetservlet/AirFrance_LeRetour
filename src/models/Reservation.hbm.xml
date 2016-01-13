@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 janv. 2016 15:16:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="models.Reservation" table="reservation" catalog="bdairfrance">
+        <id name="idReservation" type="java.lang.Integer">
+            <column name="idReservation" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="client" class="models.Client" fetch="select">
+            <column name="client_idClient" not-null="true" />
+        </many-to-one>
+        <property name="dateDepart" type="date">
+            <column name="date_depart" length="10" />
+        </property>
+        <property name="dateRetour" type="date">
+            <column name="date_retour" length="10" />
+        </property>
+        <property name="classe" type="string">
+            <column name="classe" length="9" />
+        </property>
+        <set name="etapes" table="etape" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idReservation" not-null="true" />
+            </key>
+            <one-to-many class="models.Etape" />
+        </set>
+        <set name="passagers" table="passager" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="reservation_idReservation" not-null="true" />
+            </key>
+            <one-to-many class="models.Passager" />
+        </set>
+    </class>
+</hibernate-mapping>

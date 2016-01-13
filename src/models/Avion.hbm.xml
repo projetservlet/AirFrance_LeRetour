@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 janv. 2016 15:16:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="models.Avion" table="avion" catalog="bdairfrance">
+        <id name="idAvion" type="java.lang.Integer">
+            <column name="idAvion" />
+            <generator class="identity" />
+        </id>
+        <property name="matricule" type="string">
+            <column name="matricule" length="45" />
+        </property>
+        <property name="nbPlace" type="java.lang.Integer">
+            <column name="nb_place" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="150" />
+        </property>
+        <set name="vols" table="vol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="avion_idAvion" not-null="true" />
+            </key>
+            <one-to-many class="models.Vol" />
+        </set>
+    </class>
+</hibernate-mapping>

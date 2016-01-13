@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name="aeroport" match-catalog="bdairfrance"></table-filter>
+	<table-filter match-name="avion" match-catalog="bdairfrance"></table-filter>
+	<table-filter match-name="client" match-catalog="bdairfrance"></table-filter>
+	<table-filter match-name="etape" match-catalog="bdairfrance"></table-filter>
+	<table-filter match-name="passager" match-catalog="bdairfrance"></table-filter>
+	<table-filter match-name="pays" match-catalog="bdairfrance"></table-filter>
+	<table-filter match-name="reservation"
+		match-catalog="bdairfrance">
+	</table-filter>
+	<table-filter match-name="ville" match-catalog="bdairfrance"></table-filter>
+	<table-filter match-name="vol" match-catalog="bdairfrance"></table-filter>
+</hibernate-reverse-engineering>

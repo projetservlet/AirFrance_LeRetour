@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 janv. 2016 15:16:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="models.Vol" table="vol" catalog="bdairfrance">
+        <id name="idVol" type="java.lang.Integer">
+            <column name="idVol" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="aeroportByIdAeroportArrivee" class="models.Aeroport" fetch="select">
+            <column name="id_aeroport_arrivee" not-null="true" />
+        </many-to-one>
+        <many-to-one name="avion" class="models.Avion" fetch="select">
+            <column name="avion_idAvion" not-null="true" />
+        </many-to-one>
+        <many-to-one name="aeroportByIdAeroportDepart" class="models.Aeroport" fetch="select">
+            <column name="id_aeroport_depart" not-null="true" />
+        </many-to-one>
+        <property name="dateDepart" type="date">
+            <column name="date_depart" length="10" />
+        </property>
+        <property name="dateArrive" type="date">
+            <column name="date_arrive" length="10" />
+        </property>
+        <property name="heureDepart" type="timestamp">
+            <column name="heure_depart" length="19" />
+        </property>
+        <property name="heureArrivee" type="timestamp">
+            <column name="heure_arrivee" length="19" />
+        </property>
+        <property name="nbPlaceReservee" type="java.lang.Integer">
+            <column name="nb_place_reservee" />
+        </property>
+        <set name="etapes" table="etape" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idVol" not-null="true" />
+            </key>
+            <one-to-many class="models.Etape" />
+        </set>
+    </class>
+</hibernate-mapping>

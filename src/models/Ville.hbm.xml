@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 janv. 2016 15:16:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="models.Ville" table="ville" catalog="bdairfrance">
+        <id name="idVille" type="java.lang.Integer">
+            <column name="idVille" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="pays" class="models.Pays" fetch="select">
+            <column name="pays_idPays" not-null="true" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="nom" length="60" />
+        </property>
+        <set name="aeroports" table="aeroport" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ville_idVille" not-null="true" />
+            </key>
+            <one-to-many class="models.Aeroport" />
+        </set>
+    </class>
+</hibernate-mapping>

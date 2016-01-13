@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 janv. 2016 15:16:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="models.Etape" table="etape" catalog="bdairfrance">
+        <composite-id name="id" class="models.EtapeId">
+            <key-property name="idReservation" type="int">
+                <column name="idReservation" />
+            </key-property>
+            <key-property name="idVol" type="int">
+                <column name="idVol" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vol" class="models.Vol" update="false" insert="false" fetch="select">
+            <column name="idVol" not-null="true" />
+        </many-to-one>
+        <many-to-one name="reservation" class="models.Reservation" update="false" insert="false" fetch="select">
+            <column name="idReservation" not-null="true" />
+        </many-to-one>
+        <property name="numero" type="java.lang.Integer">
+            <column name="numero" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="6" />
+        </property>
+    </class>
+</hibernate-mapping>

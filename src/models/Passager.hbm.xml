@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 janv. 2016 15:16:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="models.Passager" table="passager" catalog="bdairfrance">
+        <id name="idPassager" type="java.lang.Integer">
+            <column name="idPassager" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="reservation" class="models.Reservation" fetch="select">
+            <column name="reservation_idReservation" not-null="true" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="nom" length="45" />
+        </property>
+        <property name="categorie" type="string">
+            <column name="categorie" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>
