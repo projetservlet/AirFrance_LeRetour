@@ -10,8 +10,8 @@ import java.io.IOException;
 /**
  * Created by ipi on 13/01/2016.
  */
-@WebServlet("/HomepageServlet")
-public class HomepageServlet extends HttpServlet {
+@WebServlet("/RedirectBuyTicketsServlet")
+public class RedirectBuyTicketsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

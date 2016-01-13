@@ -6,17 +6,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Created by ipi on 13/01/2016.
  */
-@WebServlet("/ReservationSummary")
-public class ReservationSummary extends HttpServlet {
+@WebServlet("/RedirectSigninServlet")
+public class RedirectSigninServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String url = "/Connexion.jsp";
+        response.sendRedirect(url);
     }
 }
