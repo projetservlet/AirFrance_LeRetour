@@ -1,3 +1,13 @@
+DROP TABLE IF EXISTS `etape`;
+DROP TABLE IF EXISTS `vol`;
+DROP TABLE IF EXISTS `passager`;
+DROP TABLE IF EXISTS `reservation`;
+DROP TABLE IF EXISTS `client`;
+DROP TABLE IF EXISTS `avion`;
+DROP TABLE IF EXISTS `aeroport`;
+DROP TABLE IF EXISTS `ville`;
+DROP TABLE IF EXISTS `pays`;
+
 CREATE TABLE IF NOT EXISTS `pays` (
   `idPays` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(3) DEFAULT NULL,
@@ -17,7 +27,8 @@ CREATE TABLE IF NOT EXISTS `ville` (
 
 CREATE TABLE IF NOT EXISTS `aeroport` (
   `idAeroport` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nom` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `code` varchar(15) DEFAULT NULL,
   `ville_idVille` int(11) NOT NULL,
   PRIMARY KEY (`idAeroport`),
   KEY `fk_aeroport_ville1_idx` (`ville_idVille`),
@@ -47,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `idReservation` int(11) NOT NULL AUTO_INCREMENT,
   `date_depart` date DEFAULT NULL,
   `date_retour` date DEFAULT NULL,
-  `classe` enum('economie','business') COLLATE utf8_unicode_ci DEFAULT NULL,
+  `classe` enum('economie','premiere','business') COLLATE utf8_unicode_ci DEFAULT NULL,
   `client_idClient` int(11) NOT NULL,
   PRIMARY KEY (`idReservation`),
   KEY `fk_reservation_client1_idx` (`client_idClient`),
@@ -69,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `vol` (
   `idVol` int(11) NOT NULL AUTO_INCREMENT,
   `date_depart` date DEFAULT NULL,
   `date_arrive` date DEFAULT NULL,
-  `heure_depart` datetime DEFAULT NULL,
-  `heure_arrivee` datetime DEFAULT NULL,
+  `heure_depart`  TIME DEFAULT NULL,
+  `heure_arrivee`  TIME DEFAULT NULL,
   `nb_place_reservee` int(11) DEFAULT NULL,
   `avion_idAvion` int(11) NOT NULL,
   `id_aeroport_depart` int(11) NOT NULL,
