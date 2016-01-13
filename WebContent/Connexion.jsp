@@ -15,8 +15,8 @@
         <label for="login">Login</label>
         <input type="text" id="login" name="login"/>
         <label for="password">Mot de passe</label>
-        <input type="text" id="password" name="password"/>
-        <a href="RedirectHomepageServlet">Retour</a>
+        <input type="password" id="password" name="password"/>
+        <a href="RedirectHomepageServlet"><button type="button">Retour</button></a>
         <button type="submit">Connexion</button>
     </form>
 </body>

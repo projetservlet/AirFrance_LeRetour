@@ -13,10 +13,11 @@ import java.io.IOException;
 @WebServlet("/SignupServlet")
 public class SignupServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String url = "/Signup.jsp";
+        response.sendRedirect(url);
     }
 }
