@@ -11,6 +11,6 @@
     <title>$Titre changé$</title>
   </head>
   <body>
-    Super texte
+    Super texte et meme plus
   </body>
 </html>
