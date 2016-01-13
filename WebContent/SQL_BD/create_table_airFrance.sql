@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `pays` (
+CREATE TABLE IF NOT EXISTS  `pays` (
   `idPays` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(3) DEFAULT NULL,
   `nom` varchar(100) DEFAULT NULL,
