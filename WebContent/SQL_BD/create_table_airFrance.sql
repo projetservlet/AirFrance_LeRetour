@@ -1,4 +1,4 @@
-CREATE TABLE `pays` (
+CREATE TABLE IF NOT EXISTS `pays` (
   `idPays` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(3) DEFAULT NULL,
   `nom` varchar(100) DEFAULT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE `pays` (
   UNIQUE KEY `code_UNIQUE` (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ville` (
+CREATE TABLE IF NOT EXISTS `ville` (
   `idVille` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(60) CHARACTER SET utf8 DEFAULT NULL,
   `pays_idPays` int(11) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE `ville` (
   CONSTRAINT `fk_ville_pays1` FOREIGN KEY (`pays_idPays`) REFERENCES `pays` (`idPays`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `aeroport` (
+CREATE TABLE IF NOT EXISTS `aeroport` (
   `idAeroport` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ville_idVille` int(11) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE `aeroport` (
   CONSTRAINT `fk_aeroport_ville1` FOREIGN KEY (`ville_idVille`) REFERENCES `ville` (`idVille`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `avion` (
+CREATE TABLE IF NOT EXISTS `avion` (
   `idAvion` int(11) NOT NULL AUTO_INCREMENT,
   `matricule` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nb_place` int(11) DEFAULT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `avion` (
   PRIMARY KEY (`idAvion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `client` (
+CREATE TABLE IF NOT EXISTS `client` (
   `idClient` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
   `prenom` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
@@ -43,19 +43,7 @@ CREATE TABLE `client` (
   UNIQUE KEY `mail_UNIQUE` (`mail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-CREATE TABLE `passager` (
-  `idPassager` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
-  `categorie` enum('enfant','adulte','senior') CHARACTER SET latin1 DEFAULT NULL,
-  `reservation_idReservation` int(11) NOT NULL,
-  PRIMARY KEY (`idPassager`),
-  KEY `fk_passager_reservation1_idx` (`reservation_idReservation`),
-  CONSTRAINT `fk_passager_reservation1` FOREIGN KEY (`reservation_idReservation`) REFERENCES `reservation` (`idReservation`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-CREATE TABLE `reservation` (
+CREATE TABLE IF NOT EXISTS `reservation` (
   `idReservation` int(11) NOT NULL AUTO_INCREMENT,
   `date_depart` date DEFAULT NULL,
   `date_retour` date DEFAULT NULL,
@@ -66,7 +54,18 @@ CREATE TABLE `reservation` (
   CONSTRAINT `fk_reservation_client1` FOREIGN KEY (`client_idClient`) REFERENCES `client` (`idClient`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `vol` (
+
+CREATE TABLE IF NOT EXISTS `passager` (
+  `idPassager` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
+  `categorie` enum('enfant','adulte','senior') CHARACTER SET latin1 DEFAULT NULL,
+  `reservation_idReservation` int(11) NOT NULL,
+  PRIMARY KEY (`idPassager`),
+  KEY `fk_passager_reservation1_idx` (`reservation_idReservation`),
+  CONSTRAINT `fk_passager_reservation1` FOREIGN KEY (`reservation_idReservation`) REFERENCES `reservation` (`idReservation`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `vol` (
   `idVol` int(11) NOT NULL AUTO_INCREMENT,
   `date_depart` date DEFAULT NULL,
   `date_arrive` date DEFAULT NULL,
@@ -85,7 +84,7 @@ CREATE TABLE `vol` (
   CONSTRAINT `fk_vol_avion1` FOREIGN KEY (`avion_idAvion`) REFERENCES `avion` (`idAvion`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `etape` (
+CREATE TABLE IF NOT EXISTS `etape` (
   `idReservation` int(11) NOT NULL,
   `idVol` int(11) NOT NULL,
   `numero` int(11) DEFAULT NULL,
