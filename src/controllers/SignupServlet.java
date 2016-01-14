@@ -5,6 +5,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import models.Client;
+import models.HibernateHelper;
+
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,6 +48,12 @@ public class SignupServlet extends HttpServlet {
 
         if (ClientCanBeCreated) {
         	
+        	Client newClient = new Client(email);
+        	newClient.setNom(lastname);
+        	newClient.setPrenom(firstname);
+        	//newClient.setNom(password);
+        	HibernateHelper.AddObjectInDB(newClient);
+
         	
         	
         getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);

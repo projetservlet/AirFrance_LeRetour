@@ -15,7 +15,7 @@ public class HibernateHelper {
 
 	private static SessionFactory sessionFactory;
 
-	static	{
+	static {
 		try {
 			// Cr�e l�objet SessionFactory � partir de hibernate.cfg.xml
 			sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -42,18 +42,17 @@ public class HibernateHelper {
 
 	public static <T> ArrayList<T> getResource(String tableName) throws HibernateException {
 		Session session = currentSession();
-		List list =  session.createQuery("from " + tableName).list();
+		List list = session.createQuery("from " + tableName).list();
 		ArrayList<T> ret = new ArrayList<T>();
 
 		String hql = "from " + tableName;
 		Query query = session.createQuery(hql);
 		List T = query.list();
 
-		//List T = (List) session.createQuery("from T");
+		// List T = (List) session.createQuery("from T");
 		Iterator it = (T.iterator());
-		while(it.hasNext())
-		{
-			T a = (T)it.next();
+		while (it.hasNext()) {
+			T a = (T) it.next();
 			ret.add(a);
 		}
 		return ret;
@@ -86,4 +85,14 @@ public class HibernateHelper {
 	public static ArrayList<Reservation> Reservations() throws HibernateException {
 		return getResource("Reservation");
 	}
+
+	public static void AddObjectInDB(Object Objet) {
+		Transaction tx = null;
+		Session session = currentSession();
+		tx = session.beginTransaction();
+		session.save(Objet);
+		tx.commit();
+	}
+	
+
 }
