@@ -94,5 +94,17 @@ public class HibernateHelper {
 		tx.commit();
 	}
 	
+	public static boolean ClientChecks(String email,String password) {
+		Session session = currentSession();
+		String hql = "select client.mail from Client as client where client.mail ='"+ email  +"'";
+		Query query = session.createQuery(hql);
+		if ( query.list().size() == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 
 }
