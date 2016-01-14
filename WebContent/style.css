@@ -1,0 +1,48 @@
+#logo_AF{
+	padding-right: 70%;
+	
+}
+header ul {
+	list-style-type: none;
+	display: flex;
+
+}
+
+header li {
+	margin-right: 15px;
+}
+
+header a {
+	font-size: 1.3em;
+	color: #2A2A2A;
+	padding-bottom: 3px;
+	text-decoration: none;
+}
+
+header a:hover {
+	border-bottom: 5px solid #DF0101;
+}
+
+header button {
+	background-color: #A4A4A4;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+#sign{
+	padding-top: 10px;
+	margin-left: 0%;
+	margin-bottom: :15%;
+	color : #5B5B5B;	
+}
+#accueil {
+margin-left: 20%;
+margin-top: -30px;
+}
+.acc{
+	padding-right: 60px;
+}
