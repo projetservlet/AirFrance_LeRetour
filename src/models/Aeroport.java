@@ -1,5 +1,5 @@
 package models;
-// Generated 13 janv. 2016 15:16:17 by Hibernate Tools 3.4.0.CR1
+// Generated 14 janv. 2016 11:13:46 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +12,7 @@ public class Aeroport implements java.io.Serializable {
 	private Integer idAeroport;
 	private Ville ville;
 	private String nom;
+	private String code;
 	private Set volsForIdAeroportDepart = new HashSet(0);
 	private Set volsForIdAeroportArrivee = new HashSet(0);
 
@@ -22,9 +23,10 @@ public class Aeroport implements java.io.Serializable {
 		this.ville = ville;
 	}
 
-	public Aeroport(Ville ville, String nom, Set volsForIdAeroportDepart, Set volsForIdAeroportArrivee) {
+	public Aeroport(Ville ville, String nom, String code, Set volsForIdAeroportDepart, Set volsForIdAeroportArrivee) {
 		this.ville = ville;
 		this.nom = nom;
+		this.code = code;
 		this.volsForIdAeroportDepart = volsForIdAeroportDepart;
 		this.volsForIdAeroportArrivee = volsForIdAeroportArrivee;
 	}
@@ -51,6 +53,14 @@ public class Aeroport implements java.io.Serializable {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public String getCode() {
+		return this.code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public Set getVolsForIdAeroportDepart() {
