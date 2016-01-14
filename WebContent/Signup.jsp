@@ -22,6 +22,12 @@
         <div style="color: #FF0000;">${errorMessagefirstname}</div>
         <label for="lastname">Prenom</label>
         <input type="text" id="lastname" name="lastname"/>
+        <div style="color: #FF0000;">${errorMessageAddress}</div>
+        <label for="address">Adresse</label>
+        <input type="text" id="address" name="address"/>
+        <div style="color: #FF0000;">${errorMessagePhone}</div>
+        <label for="phone">Telephone</label>
+        <input type="number" id="phone" name="phone"/>
         <div style="color: #FF0000;">${errorMessagelastname}</div>
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email"/>

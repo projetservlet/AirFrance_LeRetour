@@ -38,11 +38,11 @@
         </select>
         <label for="dateDeparture">Date départ</label>
         <input type="date" id="dateDeparture" name="dateDeparture"/>
-        <label for="dateArrival">Date Retour</label>
-        <input type="date" id="dateArrival" name="dateArrival"/>
+        <label for="dateReturn">Date Retour</label>
+        <input type="date" id="dateReturn" name="dateReturn"/>
         <label for="nbPassengers">Nombre de passagers</label>
         <input type="number" id="nbPassengers" name="nbPassengers"/>
-        <label for="classe">Nombre de passagers</label>
+        <label for="classe">Classe</label>
         <select id="classe" name="classe" size="3">
             <option value="eco">Economique</option>
             <option value="sec">Seconde</option>

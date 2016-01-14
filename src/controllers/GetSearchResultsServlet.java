@@ -17,6 +17,11 @@ public class GetSearchResultsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String airportDeparture = request.getParameter("airportDeparture");
+        String airportArrival = request.getParameter("airportArrival");
+        String dateDeparture = request.getParameter("dateDeparture");
+        String dateReturn = request.getParameter("dateReturn");
+        int nbPassengers = Integer.parseInt(request.getParameter("nbPassengers"));
+        String classe = request.getParameter("classe");
     }
 }

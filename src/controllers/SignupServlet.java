@@ -21,6 +21,8 @@ public class SignupServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String firstname          = request.getParameter("firstname");
         String lastname           = request.getParameter("lastname");
+        String address           = request.getParameter("address");
+        String phone           = request.getParameter("phone");
         String email              = request.getParameter("email");
         String confirmEmail       = request.getParameter("confirmEmail");
         String password           = request.getParameter("password");
@@ -30,6 +32,7 @@ public class SignupServlet extends HttpServlet {
         
         //check password is correct
         Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
+        Pattern phoneRegexp = Pattern.compile("[0-9]*");
         Matcher m = p.matcher(password);
         if (!m.matches() ) {
         	ClientCanBeCreated = false;
@@ -37,36 +40,44 @@ public class SignupServlet extends HttpServlet {
         }
         if (!password.equals(confirmPassword)) {
         	ClientCanBeCreated = false;
-        	request.setAttribute("errorMessageconfirmPassword","vous avez rentré deux mots de passe différents");
+        	request.setAttribute("errorMessageconfirmPassword","vous avez rentrï¿½ deux mots de passe diffï¿½rents");
         }
         
         if (!email.equals(confirmEmail)) {
         	ClientCanBeCreated = false;
-        	request.setAttribute("confirmEmail","vous avez rentré deux emails différents");
+        	request.setAttribute("confirmEmail","vous avez rentrï¿½ deux emails diffï¿½rents");
         }
-      
+
+        if (phone == null) {
+            ClientCanBeCreated = false;
+            request.setAttribute("errorMessagePhone","Vous devez donner votre numero de telephone");
+        } else if (!phoneRegexp.matcher(phone).matches()) {
+        	ClientCanBeCreated = false;
+        }
+
+        if (address == null) {
+        	ClientCanBeCreated = false;
+        	request.setAttribute("errorMessageAddress","Vous devez donner votre addresse");
+        }
 
         if (ClientCanBeCreated) {
-        	
         	Client newClient = new Client(email);
         	newClient.setNom(lastname);
         	newClient.setPrenom(firstname);
-        	//newClient.setNom(password);
+        	newClient.setAdresse(address);
+        	newClient.setTelephone(phone);
         	HibernateHelper.AddObjectInDB(newClient);
 
-        	
-        	
-        getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);
+            request.getSession().setAttribute("email", email);
+            getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);
         }
         else {
-         getServletContext().getRequestDispatcher("/Signup.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/Signup.jsp").forward(request, response);
         }
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String url = "/Signup.jsp";
-//        response.sendRedirect(url);
 
     }
 }

@@ -1,10 +1,10 @@
 <header>
     <h1>Air France</h1>
     <%
-        String login = (String)session.getAttribute("login");
-        if (login != null) {
+        String email = (String)session.getAttribute("email");
+        if (email != null) {
     %>
-        <b><%=login%></b>
+        <b><%=email%></b>
     <%
         } else {
     %>

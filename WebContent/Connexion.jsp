@@ -12,8 +12,8 @@
 </head>
 <body>
     <form action="SigninServlet" method="post">
-        <label for="login">Login</label>
-        <input type="text" id="login" name="login"/>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"/>
         <label for="password">Mot de passe</label>
         <input type="password" id="password" name="password"/>
         <a href="RedirectHomepageServlet"><button type="button">Retour</button></a>
