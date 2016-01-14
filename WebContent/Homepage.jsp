@@ -1,4 +1,6 @@
-<%--
+<%@ page import="models.Aeroport" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.HibernateHelper" %><%--
   Created by IntelliJ IDEA.
   User: ipi
   Date: 13/01/2016
@@ -12,7 +14,29 @@
 </head>
 <body>
     <%@include file="Header.jsp"%>
-
+    <form action="GetSearchResultsServlet">
+        <label for="airportDeparture">Aéroport départ</label>
+        <select name="airportDeparture" id="airportDeparture">
+            <%
+                ArrayList<Aeroport> airportList = HibernateHelper.Aeroports() /* TODO fetch list of airports */;
+                for (Aeroport airport: airportList) {
+            %>
+                <option value="cel"><%=airport.getNom()%></option>
+            <%
+                }
+            %>
+        </select>
+        <label for="airportArrival">Aéroport arrivée</label>
+        <select name="airportArrival" id="airportArrival">
+            <%
+                for (Aeroport airport: airportList) {
+            %>
+            <option value="cel"><%=airport.getNom()%></option>
+            <%
+                }
+            %>
+        </select>
+    </form>
     <%@include file="Footer.jsp"%>
 </body>
 </html>

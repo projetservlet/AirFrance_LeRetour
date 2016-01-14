@@ -19,9 +19,8 @@ public class SigninServlet extends HttpServlet {
         if (login != null && password != null /* TODO check that login and password are correct, use regexp */) {
             request.getSession().setAttribute("login", login);
             request.getSession().setAttribute("password", password);
+            getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);
         }
-
-        getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

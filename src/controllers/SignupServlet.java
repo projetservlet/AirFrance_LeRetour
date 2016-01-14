@@ -31,8 +31,6 @@ public class SignupServlet extends HttpServlet {
         	ClientCanBeCreated = false;
         	request.setAttribute("errorMessagepassword","Mot de passe incorrect : doit contenir au moin une majuscule, une miniscule et un chiffre");
         }
-        
-   
         if (!password.equals(confirmPassword)) {
         	ClientCanBeCreated = false;
         	request.setAttribute("errorMessageconfirmPassword","vous avez rentré deux mots de passe différents");
@@ -53,10 +51,12 @@ public class SignupServlet extends HttpServlet {
         else {
          getServletContext().getRequestDispatcher("/Signup.jsp").forward(request, response);
         }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        String url = "/Signup.jsp";
 //        response.sendRedirect(url);
+
     }
 }
