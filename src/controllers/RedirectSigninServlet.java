@@ -27,6 +27,8 @@ public class RedirectSigninServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+
 		String url = "/Connexion.jsp";
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
 		requestDispatcher.forward(request, response);
@@ -41,6 +43,7 @@ public class RedirectSigninServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		int i = 0;
 		// redirection de la requête vers cette ressource
 	};
 
