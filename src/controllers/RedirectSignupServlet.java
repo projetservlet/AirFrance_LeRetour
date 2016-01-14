@@ -18,6 +18,6 @@ public class RedirectSignupServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = "/Signup.jsp";
-        response.sendRedirect(url);
+        request.getRequestDispatcher(url).forward(request, response);
     }
 }
