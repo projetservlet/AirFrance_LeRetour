@@ -11,7 +11,7 @@
     <title>Air France: Connexion</title>
 </head>
 <body>
-    <form action="SigninServlet">
+    <form action="SigninServlet" method="post">
         <label for="login">Login</label>
         <input type="text" id="login" name="login"/>
         <label for="password">Mot de passe</label>
