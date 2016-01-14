@@ -11,7 +11,9 @@
 <html>
 <head>
     <title>Air France: Accueil</title>
+     <link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
+
 <body>
     <%@include file="Header.jsp"%>
     <form action="GetSearchResultsServlet">

@@ -1,4 +1,4 @@
-
+<header>
 	<div id="sign"><ul >
 		<li><img src="resource/logo_AF.jpg" alt="logoAF" id="logo_AF"/></li>
 		<li><a href="mailto: contact@airfrance.com" id="contact">Nous contacter</a></li>
@@ -29,3 +29,4 @@
 		<li class="acc"> <a href="#">VOS RESERVATIONS</a></li>
 	</ul>
 	</div>
+</header>
