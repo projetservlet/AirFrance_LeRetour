@@ -10,6 +10,7 @@ import models.Client;
 import models.HibernateHelper;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,7 +28,7 @@ public class SignupServlet extends HttpServlet {
         String confirmEmail       = request.getParameter("confirmEmail");
         String password           = request.getParameter("password");
         String confirmPassword    = request.getParameter("confirmPassword");
-           
+
         boolean ClientCanBeCreated = true;
         
         //check password is correct
@@ -60,24 +61,33 @@ public class SignupServlet extends HttpServlet {
         	request.setAttribute("errorMessageAddress","Vous devez donner votre addresse");
         }
 
-        if (ClientCanBeCreated) {
-        	Client newClient = new Client(email);
-        	newClient.setNom(lastname);
-        	newClient.setPrenom(firstname);
-        	newClient.setAdresse(address);
-        	newClient.setTelephone(phone);
-        	HibernateHelper.AddObjectInDB(newClient);
+		ArrayList<Client> listeClient = HibernateHelper.Clients();
+		for (Client c : listeClient) {
+			if (c.getMail().equals(email)) {
+				ClientCanBeCreated = false;
+				request.setAttribute("errorMessageemail", "Un compte utilise d�j� cet email !");
+			}
+		}
+
+		if (ClientCanBeCreated) {
+
+			Client newClient = new Client(email);
+			newClient.setNom(lastname);
+			newClient.setPrenom(firstname);
+			newClient.setTelephone(phone);
+			newClient.setAdresse(address);
+			HibernateHelper.AddObjectInDB(newClient);
 
             request.getSession().setAttribute("email", email);
             getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);
-        }
-        else {
-            getServletContext().getRequestDispatcher("/Signup.jsp").forward(request, response);
-        }
+		} else {
+			getServletContext().getRequestDispatcher("/Signup.jsp").forward(request, response);
+		}
 
-    }
+	}
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-    }
+	}
 }
