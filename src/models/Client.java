@@ -13,6 +13,7 @@ public class Client implements java.io.Serializable {
 	private String nom;
 	private String prenom;
 	private String mail;
+	private String password;
 	private String telephone;
 	private String adresse;
 	private Set reservations = new HashSet(0);
@@ -20,14 +21,16 @@ public class Client implements java.io.Serializable {
 	public Client() {
 	}
 
-	public Client(String mail) {
+	public Client(String mail, String pass) {
 		this.mail = mail;
+		this.password = pass;
 	}
 
-	public Client(String nom, String prenom, String mail, String telephone, String adresse, Set reservations) {
+	public Client(String nom, String prenom, String mail, String password, String telephone, String adresse, Set reservations) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
+		this.password = password;
 		this.telephone = telephone;
 		this.adresse = adresse;
 		this.reservations = reservations;
@@ -87,6 +90,14 @@ public class Client implements java.io.Serializable {
 
 	public void setReservations(Set reservations) {
 		this.reservations = reservations;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

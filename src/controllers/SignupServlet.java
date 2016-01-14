@@ -71,7 +71,7 @@ public class SignupServlet extends HttpServlet {
 
 		if (ClientCanBeCreated) {
 
-			Client newClient = new Client(email);
+			Client newClient = new Client(email, password);
 			newClient.setNom(lastname);
 			newClient.setPrenom(firstname);
 			newClient.setTelephone(phone);

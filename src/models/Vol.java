@@ -19,7 +19,10 @@ public class Vol implements java.io.Serializable {
 	private Date heureDepart;
 	private Date heureArrivee;
 	private Integer nbPlaceReservee;
+	private Integer prix;
 	private Set etapes = new HashSet(0);
+
+
 
 	public Vol() {
 	}
@@ -31,7 +34,7 @@ public class Vol implements java.io.Serializable {
 	}
 
 	public Vol(Aeroport aeroportByIdAeroportArrivee, Avion avion, Aeroport aeroportByIdAeroportDepart, Date dateDepart,
-			Date dateArrive, Date heureDepart, Date heureArrivee, Integer nbPlaceReservee, Set etapes) {
+			Date dateArrive, Date heureDepart, Date heureArrivee, Integer nbPlaceReservee, Integer prix, Set etapes) {
 		this.aeroportByIdAeroportArrivee = aeroportByIdAeroportArrivee;
 		this.avion = avion;
 		this.aeroportByIdAeroportDepart = aeroportByIdAeroportDepart;
@@ -40,6 +43,7 @@ public class Vol implements java.io.Serializable {
 		this.heureDepart = heureDepart;
 		this.heureArrivee = heureArrivee;
 		this.nbPlaceReservee = nbPlaceReservee;
+		this.prix = prix;
 		this.etapes = etapes;
 	}
 
@@ -121,6 +125,14 @@ public class Vol implements java.io.Serializable {
 
 	public void setEtapes(Set etapes) {
 		this.etapes = etapes;
+	}
+
+	public Integer getPrix() {
+		return prix;
+	}
+
+	public void setPrix(Integer prix) {
+		this.prix = prix;
 	}
 
 }

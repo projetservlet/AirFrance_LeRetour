@@ -199,12 +199,14 @@ INSERT INTO `bdairfrance`.`client`
 (`nom`,
 `prenom`,
 `mail`,
+`password`,
 `telephone`,
 `adresse`)
 VALUES
-("babard",
+("babar",
 "le roi",
-"babard@skyblog.fr",
+"babar@skyblog.fr",
+"babar",
 null,
 "L'ile aux enfants");
 
@@ -212,12 +214,14 @@ INSERT INTO `bdairfrance`.`client`
 (`nom`,
 `prenom`,
 `mail`,
+`password`,
 `telephone`,
 `adresse`)
 VALUES
 ("Roger",
 "Roger",
 "roger@gmail.com",
+"roger",
 "0180345656",
 "44 quai de Jemmapes");
 
@@ -259,6 +263,7 @@ INSERT INTO `bdairfrance`.`vol`
 `heure_depart`,
 `heure_arrivee`,
 `nb_place_reservee`,
+`prix`,
 `avion_idAvion`,
 `id_aeroport_depart`,
 `id_aeroport_arrivee`)
@@ -268,6 +273,7 @@ VALUES
 "00:22:00",
 "01:22:00",
 50,
+200,
 "1",
 "1",
 "5");
@@ -278,6 +284,7 @@ INSERT INTO `bdairfrance`.`vol`
 `heure_depart`,
 `heure_arrivee`,
 `nb_place_reservee`,
+`prix`,
 `avion_idAvion`,
 `id_aeroport_depart`,
 `id_aeroport_arrivee`)
@@ -287,6 +294,7 @@ VALUES
 "01:25:00",
 "01:22:00",
 1,
+5000,
 "2",
 "5",
 "1");

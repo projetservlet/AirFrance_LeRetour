@@ -1,33 +1,37 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 14 janv. 2016 11:13:46 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="models.Client" table="client" catalog="bdairfrance">
-        <id name="idClient" type="java.lang.Integer">
-            <column name="idClient" />
-            <generator class="identity" />
-        </id>
-        <property name="nom" type="string">
-            <column name="nom" length="45" />
-        </property>
-        <property name="prenom" type="string">
-            <column name="prenom" length="45" />
-        </property>
-        <property name="mail" type="string">
-            <column name="mail" length="80" not-null="true" unique="true" />
-        </property>
-        <property name="telephone" type="string">
-            <column name="telephone" length="12" />
-        </property>
-        <property name="adresse" type="string">
-            <column name="adresse" length="250" />
-        </property>
-        <set name="reservations" table="reservation" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="client_idClient" not-null="true" />
-            </key>
-            <one-to-many class="models.Reservation" />
-        </set>
-    </class>
+ <class catalog="bdairfrance" name="models.Client" table="client">
+  <id name="idClient" type="java.lang.Integer">
+   <column name="idClient"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="nom" type="string">
+   <column length="45" name="nom"/>
+  </property>
+  <property generated="never" lazy="false" name="prenom" type="string">
+   <column length="45" name="prenom"/>
+  </property>
+  <property generated="never" lazy="false" name="mail" type="string">
+   <column length="80" name="mail" not-null="true" unique="true"/>
+  </property>
+  <property name="password" type="string">
+   <column length="50" name="password"/>
+  </property>
+  <property generated="never" lazy="false" name="telephone" type="string">
+   <column length="12" name="telephone"/>
+  </property>
+  <property generated="never" lazy="false" name="adresse" type="string">
+   <column length="250" name="adresse"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="reservations"
+   sort="unsorted" table="reservation">
+   <key>
+    <column name="client_idClient" not-null="true"/>
+   </key>
+   <one-to-many class="models.Reservation"/>
+  </set>
+ </class>
 </hibernate-mapping>
