@@ -13,7 +13,15 @@ import java.io.IOException;
 @WebServlet("/SignupServlet")
 public class SignupServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+
+        if (login != null && password != null /* TODO check that login and password are correct, use regexp */) {
+            request.getSession().setAttribute("login", login);
+            request.getSession().setAttribute("password", password);
+        }
+
+        getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
