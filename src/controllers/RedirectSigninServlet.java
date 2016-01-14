@@ -12,7 +12,6 @@ import models.HibernateHelper;
 import org.hibernate.HibernateException;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -27,8 +26,6 @@ public class RedirectSigninServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-
 		String url = "/Connexion.jsp";
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
 		requestDispatcher.forward(request, response);
@@ -44,7 +41,6 @@ public class RedirectSigninServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		int i = 0;
-		// redirection de la requête vers cette ressource
-	};
-
+		// redirection de la requï¿½te vers cette ressource
+	}
 }

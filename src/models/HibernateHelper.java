@@ -17,7 +17,7 @@ public class HibernateHelper {
 
 	static	{
 		try {
-			// Crée l’objet SessionFactory à partir de hibernate.cfg.xml
+			// Crï¿½e lï¿½objet SessionFactory ï¿½ partir de hibernate.cfg.xml
 			sessionFactory = new Configuration().configure().buildSessionFactory();
 		} catch (Throwable ex) {
 			System.err.println("Initial SessionFactory creation failed." + ex);
@@ -40,26 +40,50 @@ public class HibernateHelper {
 		return null;
 	}
 
-	public static ArrayList<Avion> Avions() throws HibernateException {
-		
-		
+	public static <T> ArrayList<T> getResource(String tableName) throws HibernateException {
 		Session session = currentSession();
-		List list =  session.createQuery("from Avion").list();
-			ArrayList<Avion> ret = new ArrayList<Avion>();
-	
-			String hql = "from Avion";
-			Query query = session.createQuery(hql);
-			List avion = query.list();
-			
-		//List Avion = (List) session.createQuery("from Avion");
-		Iterator it = (avion.iterator());
-		while(it.hasNext())
-			{
-				Avion a = (Avion)it.next();
-				ret.add(a);
-				}
-		return ret;			
-	}
-	
+		List list =  session.createQuery("from " + tableName).list();
+		ArrayList<T> ret = new ArrayList<T>();
 
+		String hql = "from " + tableName;
+		Query query = session.createQuery(hql);
+		List T = query.list();
+
+		//List T = (List) session.createQuery("from T");
+		Iterator it = (T.iterator());
+		while(it.hasNext())
+		{
+			T a = (T)it.next();
+			ret.add(a);
+		}
+		return ret;
+	}
+
+	public static ArrayList<Avion> Avions() throws HibernateException {
+		return getResource("Avion");
+	}
+
+	public static ArrayList<Aeroport> Aeroports() throws HibernateException {
+		return getResource("Aeroport");
+	}
+
+	public static ArrayList<Ville> Villes() throws HibernateException {
+		return getResource("Ville");
+	}
+
+	public static ArrayList<Vol> Vols() throws HibernateException {
+		return getResource("Vol");
+	}
+
+	public static ArrayList<Client> Clients() throws HibernateException {
+		return getResource("Client");
+	}
+
+	public static ArrayList<Pays> Pays() throws HibernateException {
+		return getResource("Pays");
+	}
+
+	public static ArrayList<Reservation> Reservations() throws HibernateException {
+		return getResource("Reservation");
+	}
 }
