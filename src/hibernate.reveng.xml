@@ -8,9 +8,7 @@
 	<table-filter match-name="etape" match-catalog="bdairfrance"></table-filter>
 	<table-filter match-name="passager" match-catalog="bdairfrance"></table-filter>
 	<table-filter match-name="pays" match-catalog="bdairfrance"></table-filter>
-	<table-filter match-name="reservation"
-		match-catalog="bdairfrance">
-	</table-filter>
+	<table-filter match-name="reservation" match-catalog="bdairfrance"></table-filter>
 	<table-filter match-name="ville" match-catalog="bdairfrance"></table-filter>
 	<table-filter match-name="vol" match-catalog="bdairfrance"></table-filter>
 </hibernate-reverse-engineering>

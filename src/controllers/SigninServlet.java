@@ -13,10 +13,6 @@ import java.io.IOException;
 @WebServlet("/SigninServlet")
 public class SigninServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
@@ -26,5 +22,9 @@ public class SigninServlet extends HttpServlet {
         }
 
         getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 }
