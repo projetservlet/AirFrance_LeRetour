@@ -23,6 +23,10 @@ public class SigninServlet extends HttpServlet {
             request.getSession().setAttribute("email", email);
             getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);
         }
+        else {
+        	request.setAttribute("errorConnexion","Email ou mot de passe incorrect");
+        	getServletContext().getRequestDispatcher("/RedirectSigninServlet").forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

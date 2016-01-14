@@ -18,6 +18,7 @@
         <input type="password" id="password" name="password"/>
         <a href="RedirectHomepageServlet"><button type="button">Retour</button></a>
         <button type="submit">Connexion</button>
+        <div style="color: #FF0000;">${errorConnexion}</div>
     </form>
 </body>
 </html>
