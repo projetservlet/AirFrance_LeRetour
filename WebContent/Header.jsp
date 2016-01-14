@@ -3,17 +3,17 @@
 		<li><img src="resource/logo_AF.jpg" alt="logoAF" id="logo_AF"/></li>
 		<li><a href="mailto: contact@airfrance.com" id="contact">Nous contacter</a></li>
 		<%
-			String login = (String) session.getAttribute("login");
-			if (login != null) {
+			String email = (String) session.getAttribute("email");
+			if (email != null) {
 		%>
-		<li><b><%=login%></b></li>
-		<li><a href=Logout><button>Déconnexion</button></a></li>
+		<li><b><%=email%></b></li>
+		<li><a href=Logout><button>Dï¿½connexion</button></a></li>
 		<%
 			} else {
 		%>
-		<li><img src="resource/logo_newcompte.jpg" alt="logoCréation" />
+		<li><img src="resource/logo_newcompte.jpg" alt="logoCrï¿½ation" />
 			<a href="RedirectSigninServlet"><button>Connexion</button></a></li>
-		<li><img src="resource/logo_connexion.jpg" alt="logoCréation" /><a
+		<li><img src="resource/logo_connexion.jpg" alt="logoCrï¿½ation" /><a
 			href="RedirectSignupServlet"><button>S'enregistrer</button></a></li>
 
 		<%
