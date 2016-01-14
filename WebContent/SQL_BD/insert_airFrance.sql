@@ -183,7 +183,7 @@ INSERT INTO `bdairfrance`.`avion`
 VALUES
 ("STARX-22",
 5,
-"UML");
+"ULM");
 
 INSERT INTO `bdairfrance`.`avion`
 (`matricule`,

@@ -19,6 +19,6 @@ public class RedirectSigninServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = "/Connexion.jsp";
-        response.sendRedirect(url);
+        request.getRequestDispatcher(url).forward(request, response);
     }
 }
