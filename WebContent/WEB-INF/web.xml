@@ -4,7 +4,6 @@
   <welcome-file-list>
     <welcome-file>Homepage.jsp</welcome-file>
   </welcome-file-list>
-
   <servlet>
     <description>Servlet Bienvenue</description>
     <display-name>RedirectHomepageServlet</display-name>
@@ -15,7 +14,6 @@
     <servlet-name>RedirectHomepageServlet</servlet-name>
     <url-pattern>/homepage</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description>Servlet Bienvenue</description>
     <display-name>SignupServlet</display-name>
@@ -26,7 +24,6 @@
     <servlet-name>SignupServlet</servlet-name>
     <url-pattern>/signup</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description>Servlet Bienvenue</description>
     <display-name>SigninServlet</display-name>
@@ -37,7 +34,6 @@
     <servlet-name>SigninServlet</servlet-name>
     <url-pattern>/signin</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description>Servlet Bienvenue</description>
     <display-name>GetSearchResultsServlet</display-name>
@@ -48,7 +44,6 @@
     <servlet-name>GetSearchResultsServlet</servlet-name>
     <url-pattern>/searchResults</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description>Servlet Bienvenue</description>
     <display-name>RedirectReservationSummaryServlet</display-name>
@@ -59,7 +54,6 @@
     <servlet-name>RedirectReservationSummaryServlet</servlet-name>
     <url-pattern>/redirectReservationSummary</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description>Servlet Bienvenue</description>
     <display-name>RedirectSigninServlet</display-name>
@@ -70,7 +64,6 @@
     <servlet-name>RedirectSigninServlet</servlet-name>
     <url-pattern>/redirectSignin</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description>Servlet Bienvenue</description>
     <display-name>RedirectSignupServlet</display-name>
@@ -81,5 +74,4 @@
     <servlet-name>RedirectSignupServlet</servlet-name>
     <url-pattern>/redirectSignup</url-pattern>
   </servlet-mapping>
-
 </web-app>
