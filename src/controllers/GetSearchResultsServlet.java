@@ -23,5 +23,7 @@ public class GetSearchResultsServlet extends HttpServlet {
         String dateReturn = request.getParameter("dateReturn");
         int nbPassengers = Integer.parseInt(request.getParameter("nbPassengers"));
         String classe = request.getParameter("classe");
+
+
     }
 }
