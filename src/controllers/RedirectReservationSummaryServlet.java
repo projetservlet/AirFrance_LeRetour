@@ -17,7 +17,7 @@ public class RedirectReservationSummaryServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	 String url = "/ReservationSummary.jsp";
+    	 String url = "/ReservationSummary";
          request.getRequestDispatcher(url).forward(request, response);
     }
 }

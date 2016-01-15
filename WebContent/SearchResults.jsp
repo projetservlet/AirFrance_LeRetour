@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Air France: Résultats de recherche</title>
+     <link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
 <body>
     <%@include file="Header.jsp"%>

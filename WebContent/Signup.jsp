@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>Air France: S'enregistrer</title>
+     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+ 	<%@include file="Header.jsp"%>
     <form action="SignupServlet" method="post">
         <label for="civilite">Civilite</label>
         <select name="civilite" id="civilite" size="2">
@@ -46,5 +48,6 @@
         <a href="RedirectHomepageServlet"><button type="button">Retour</button></a>
         <button type="submit">S'enregistrer</button>
     </form>
+     <%@include file="Footer.jsp"%>
 </body>
 </html>
