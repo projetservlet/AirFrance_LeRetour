@@ -27,8 +27,10 @@ public class BuyTicketsServlet extends HttpServlet {
         ReservationSession reservationSession = (ReservationSession) request.getSession().getAttribute("reservation");
 
         Reservation reservation = HibernateHelper.createReservation(flight, client, null);
+        Etape etape = new Etape(flight, reservation, 1);
+        HibernateHelper.createEtape(etape);
         //Reservation reservation = HibernateHelper.getClientByIdClientAndDate(client.getIdClient().toString(), reservationSession.getDateDeparture());
-        HibernateHelper.createPassenger(reservation, client);
+        //HibernateHelper.createPassenger(reservation, client);
 
         getServletContext().getRequestDispatcher("/RedirectHomepageServlet").forward(request, response);
     }

@@ -177,6 +177,10 @@ public class HibernateHelper {
 		return AddObjectInDB(reservation);
 	}
 
+	public static Etape createReservation(Etape etape) {
+		return AddObjectInDB(etape);
+	}
+
 	public static void createPassenger(Reservation reservation, Client client) {
 		Passager passager = new Passager(reservation, client.getNom(), null);
 		AddObjectInDB(passager);

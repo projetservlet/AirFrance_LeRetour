@@ -15,6 +15,12 @@ public class Etape implements java.io.Serializable {
 	public Etape() {
 	}
 
+	public Etape(Vol vol, Reservation reservation, int numero) {
+		this.vol = vol;
+		this.reservation = reservation;
+		this.numero = numero;
+	}
+
 	public Etape(EtapeId id, Vol vol, Reservation reservation) {
 		this.id = id;
 		this.vol = vol;
