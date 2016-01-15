@@ -13,7 +13,7 @@
 </head>
 <body>
  	<%@include file="Header.jsp"%>
-    <form action="SigninServlet" method="post">
+    <form action="SigninServlet" method="post" class="connexion">
         <label for="email">Email</label>
         <input type="email" id="email" name="email"/>
         <label for="password">Mot de passe</label>
