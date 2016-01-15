@@ -1,6 +1,6 @@
 <header>
 	<div id="sign"><ul >
-		<li><img src="resource/logo_AF.jpg" alt="logoAF" id="logo_AF"/></li>
+		<li id="logo_AF"><img src="resource/logo_AF.jpg" alt="logoAF"/></li>
 		<li><a href="mailto: contact@airfrance.com" id="contact">Nous contacter</a></li>
 		<%
 			String email = (String) session.getAttribute("email");
@@ -26,7 +26,7 @@
 	<div id="accueil"><ul>
 		<li class="acc"><a href="RedirectHomepageServlet">ACCEUIL</a></li>
 		<li class="acc" ><a href="google.com">ACHETER UN BILLET</a></li>
-		<li class="acc"> <a href="RedirectReservationSummaryServlet">VOS RESERVATIONS</a></li>
+		<li class="acc"> <a href="#">VOS RESERVATIONS</a></li>
 	</ul>
 	</div>
 </header>
