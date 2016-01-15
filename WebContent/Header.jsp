@@ -7,7 +7,7 @@
 			if (email != null) {
 		%>
 		<li><b><%=email%></b></li>
-		<li><a href=Logout><button>Dï¿½connexion</button></a></li>
+		<li><a href=Logout><button>Déconnexion</button></a></li>
 		<%
 			} else {
 		%>
