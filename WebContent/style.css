@@ -1,3 +1,43 @@
+#background select {
+	padding: 5px 8px;
+	width: 100%;
+	border: none;
+	box-shadow: none;
+	background: #E0E6F8;
+}
+
+#background input {
+	padding: 5px 8px;
+	width: 100%;
+	border: none;
+	box-shadow: none;
+	background: #E0E6F8;
+}
+
+ button {
+	background-color: #A4A4A4;
+	border: none;
+	color: #E0E6F8;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	font-size: 20px;
+}
+
+ button:hover {
+	background-color: #D8D8D8;
+}
+
+body {
+	color: #E0E6F8;
+}
+
+#background {
+	background-image: url(resource/AFbackground.jpg);
+	width: 100%;
+	height: 70%;
+}
+
 #logo_AF {
 	padding-right: 40%;
 }
@@ -31,10 +71,12 @@ header button {
 	display: inline-block;
 	font-size: 16px;
 }
+
 header button:hover {
 	background-color: #D8D8D8;
 }
-header button:click  {
+
+header button:click {
 	background-color: #424242
 }
 
@@ -46,7 +88,7 @@ header button:click  {
 }
 
 #accueil {
-	margin-left: 20%;
+	margin-left: 33%;
 	margin-top: -30px;
 }
 
@@ -55,11 +97,11 @@ header button:click  {
 }
 
 footer p {
-	padding : 30px;
+	padding: 30px;
 	margin-left: 37%;
-	color : white;
+	color: white;
 }
 
-footer  {
+footer {
 	background-color: #08088A;
 }

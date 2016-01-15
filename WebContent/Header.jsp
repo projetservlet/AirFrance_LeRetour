@@ -25,7 +25,6 @@
 	<br>
 	<div id="accueil"><ul>
 		<li class="acc"><a href="RedirectHomepageServlet">ACCEUIL</a></li>
-		<li class="acc" ><a href="google.com">ACHETER UN BILLET</a></li>
 		<li class="acc"> <a href="RedirectReservationSummaryServlet">VOS RESERVATIONS</a></li>
 	</ul>
 	</div>

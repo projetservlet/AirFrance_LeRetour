@@ -16,9 +16,12 @@
 
 <body>
     <%@include file="Header.jsp"%>
+    <div id=background>
     <form action="GetSearchResultsServlet">
-        <label for="airportDeparture">Aéroport départ</label>
-        <select name="airportDeparture" id="airportDeparture">
+    	<table>
+    	<tr>
+       <td><label for="airportDeparture">Aéroport départ</label></td>
+        <td><select name="airportDeparture" id="airportDeparture">
             <%
                 ArrayList<Aeroport> airportList = HibernateHelper.Aeroports() /* TODO fetch list of airports */;
                 for (Aeroport airport: airportList) {
@@ -27,9 +30,12 @@
             <%
                 }
             %>
+            </td>
         </select>
-        <label for="airportArrival">Aéroport arrivée</label>
-        <select name="airportArrival" id="airportArrival">
+         </tr>
+         <tr>
+        <td><label for="airportArrival">Aéroport arrivée</label></td>
+        <td><select name="airportArrival" id="airportArrival">
             <%
                 for (Aeroport airport: airportList) {
             %>
@@ -38,20 +44,32 @@
                 }
             %>
         </select>
-        <label for="dateDeparture">Date départ</label>
-        <input type="date" id="dateDeparture" name="dateDeparture"/>
-        <label for="dateReturn">Date Retour</label>
-        <input type="date" id="dateReturn" name="dateReturn"/>
-        <label for="nbPassengers">Nombre de passagers</label>
-        <input type="number" id="nbPassengers" name="nbPassengers"/>
-        <label for="classe">Classe</label>
-        <select id="classe" name="classe" size="3">
+        </td>
+        </tr>
+        <tr>
+        <td><label for="dateDeparture">Date départ</label></td> 
+        <td><input type="date" id="dateDeparture" name="dateDeparture"/></td>
+        </tr>
+        <tr>
+        <td><label for="dateReturn">Date Retour</label></td>
+        <td><input type="date" id="dateReturn" name="dateReturn"/></td>
+        </tr>
+        <tr>
+        <td><label for="nbPassengers">Nombre de passagers</label></td>
+        <td><input type="number" id="nbPassengers" name="nbPassengers"/><td>
+        </tr>
+        <tr>
+       <td><label for="classe">Classe</label></td>
+        <td><select id="classe" name="classe" size="1">
             <option value="eco">Economique</option>
             <option value="sec">Seconde</option>
             <option value="pre">Première</option>
         </select>
-        <button type="submit">Rechercher</button>
+       <button type="submit">Rechercher</button></td>
+        </tr>
+        </table>
     </form>
+    </div>
     <%@include file="Footer.jsp"%>
 </body>
 </html>
