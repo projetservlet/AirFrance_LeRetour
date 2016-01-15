@@ -32,5 +32,10 @@ public class GetSearchResultsServlet extends HttpServlet {
         ArrayList<Vol> listVols = HibernateHelper.retrieveFlights(airportDeparture, airportArrival, dateDeparture);
         request.setAttribute("flights", listVols);
         request.getRequestDispatcher("SearchResults.jsp").forward(request, response);
+        
+        
     }
+    
+    
+    
 }
