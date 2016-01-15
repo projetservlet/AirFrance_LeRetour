@@ -91,24 +91,24 @@ public class HibernateHelper {
 	}
 
 	public static ArrayList<Vol> retrieveFlights(String airportDeparture, String airportArrival, String dateDeparture) {
-		String conditions = "'" + airportDeparture + "' = aeroportByIdAeroportDepart AND '" + airportArrival + "' = aeroportByIdAeroportArrivee AND '" + dateDeparture + "' = dateDepart";
+		String conditions = "'" + airportDeparture + "' = aeroportByIdAeroportDepart AND '" + airportArrival
+				+ "' = aeroportByIdAeroportArrivee AND '" + dateDeparture + "' = dateDepart";
 		return getResource("Vol", conditions);
-		/*ArrayList<Vol> flights = Vols();
-		ArrayList<Vol> filteredFlights = new ArrayList<Vol>();
-
-		for (Vol vol: flights) {
-			String airportDepartureCode = vol.getAeroportByIdAeroportDepart().getCode();
-			String airportArrivalCode = vol.getAeroportByIdAeroportDepart().getCode();
-			Date flightDate = vol.getDateDepart();
-			if (airportDepartureCode.equals(airportDeparture)
-					&& airportArrivalCode.equals(airportArrival)
-					&& flightDate.compareTo(dateDeparture) == 0
-				) {
-				filteredFlights.add(vol);
-			}
-		}
-
-		return filteredFlights;*/
+		/*
+		 * ArrayList<Vol> flights = Vols(); ArrayList<Vol> filteredFlights = new
+		 * ArrayList<Vol>();
+		 * 
+		 * for (Vol vol: flights) { String airportDepartureCode =
+		 * vol.getAeroportByIdAeroportDepart().getCode(); String
+		 * airportArrivalCode = vol.getAeroportByIdAeroportDepart().getCode();
+		 * Date flightDate = vol.getDateDepart(); if
+		 * (airportDepartureCode.equals(airportDeparture) &&
+		 * airportArrivalCode.equals(airportArrival) &&
+		 * flightDate.compareTo(dateDeparture) == 0 ) {
+		 * filteredFlights.add(vol); } }
+		 * 
+		 * return filteredFlights;
+		 */
 	}
 
 	public static ArrayList<Client> Clients() throws HibernateException {
@@ -130,24 +130,25 @@ public class HibernateHelper {
 		session.save(Objet);
 		tx.commit();
 	}
-	
-	public static boolean ClientChecks(String email,String password) {
+
+	public static boolean ClientChecks(String email, String password) {
 		Session session = currentSession();
-		String hql = "select client.mail from Client as client where client.mail ='"+ email  +"' and client.password='"+ password  + "' ";
+		String hql = "select client.mail from Client as client where client.mail ='" + email + "' and client.password='"
+				+ password + "' ";
 		Query query = session.createQuery(hql);
-		if ( query.list().size() == 1) {
+		if (query.list().size() == 1) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
 
-	public static ArrayList<Reservation> GetReservationWhereClient(String Mail){
-		
+	public static ArrayList<Reservation> GetReservationWhereClientIs(String Mail) {
+
 		Session session = currentSession();
-		String q =  "from Reservation  as reservation where reservation.client.idClient = (select client.idClient from Client as client where client.mail='" + Mail + "'" ;
-		List list = session.createQuery(q ).list();
+		String q = "from Reservation  as reservation where reservation.client.idClient = (select client.idClient from Client as client where client.mail='"
+				+ Mail + "')";
+		List list = session.createQuery(q).list();
 		ArrayList<Reservation> ret = new ArrayList<Reservation>();
 		Iterator it = (list.iterator());
 		while (it.hasNext()) {
