@@ -32,21 +32,21 @@ public class SignupServlet extends HttpServlet {
         boolean ClientCanBeCreated = true;
         
         //check password is correct
-        Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
+        Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{4,}$");
         Pattern phoneRegexp = Pattern.compile("[0-9]*");
         Matcher m = p.matcher(password);
         if (!m.matches() ) {
         	ClientCanBeCreated = false;
-        	request.setAttribute("errorMessagepassword","Mot de passe incorrect : doit contenir au moin une majuscule, une miniscule et un chiffre");
+        	request.setAttribute("errorMessagepassword","Mot de passe incorrect : doit contenir au moin une majuscule, une miniscule et un chiffre et faire plus de 4 caractéres");
         }
         if (!password.equals(confirmPassword)) {
         	ClientCanBeCreated = false;
-        	request.setAttribute("errorMessageconfirmPassword","vous avez rentrï¿½ deux mots de passe diffï¿½rents");
+        	request.setAttribute("errorMessageconfirmPassword","vous avez rentré deux mots de passe différents");
         }
         
         if (!email.equals(confirmEmail)) {
         	ClientCanBeCreated = false;
-        	request.setAttribute("confirmEmail","vous avez rentrï¿½ deux emails diffï¿½rents");
+        	request.setAttribute("confirmEmail","vous avez rentré deux emails différents");
         }
 
         if (phone == null) {

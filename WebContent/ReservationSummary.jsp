@@ -22,13 +22,13 @@
 
 	<%
 		// TODO : Create a new Servlet;
-		ArrayList<Reservation> ListeReservation = HibernateHelper.GetReservationWhereClientIs(email);
+		ArrayList<Reservation> ListeReservation = (ArrayList<Reservation>) request.getAttribute("reservations");
 		for (Reservation reser : ListeReservation) {
 	%>
 		<h3>Numero de reservation :
 			<%=reser.getIdReservation()%>
 		 </h3>
-		<h4>Liste des passagers</h4>
+		<h4><%=reser.getPassagers().size() %> Passagers </h4>
 		<table border=1>
 			<tr>
 				<th>Nom</th>

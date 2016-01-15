@@ -7,7 +7,7 @@
 			if (email != null) {
 		%>
 		<li><b><%=email%></b></li>
-		<li><a href=Logout><button>Dï¿½connexion</button></a></li>
+		<li><a href=Logout><button>Déconnexion</button></a></li>
 		<%
 			} else {
 		%>
@@ -25,8 +25,8 @@
 	<br>
 	<div id="accueil"><ul>
 		<li class="acc"><a href="RedirectHomepageServlet">ACCEUIL</a></li>
-		<li class="acc" ><a href="google.com">ACHETER UN BILLET</a></li>
 		<li class="acc"> <a href="RedirectReservationSummaryServlet">VOS RESERVATIONS</a></li>
 	</ul>
 	</div>
+	<hr>
 </header>

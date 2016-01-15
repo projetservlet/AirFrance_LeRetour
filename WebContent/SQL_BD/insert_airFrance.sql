@@ -549,3 +549,73 @@ VALUES
 "2",
 1,
 "retour");
+
+
+
+/* Nouvelle Reservation */
+INSERT INTO `bdairfrance`.`reservation`
+(`date_depart`,
+`date_retour`,
+`classe`,
+`client_idClient`)
+VALUES
+("2016-02-14",
+"2016-02-23",
+"economie",
+"1");
+
+/* Passager */
+INSERT INTO `bdairfrance`.`passager`
+(`nom`,
+`categorie`,
+`reservation_idReservation`)
+VALUES
+("Babar le roi des elephants",
+"adulte",
+"2");
+
+INSERT INTO `bdairfrance`.`passager`
+(`nom`,
+`categorie`,
+`reservation_idReservation`)
+VALUES
+("Céleste",
+"adulte",
+"2");
+
+
+/* etape */
+INSERT INTO `bdairfrance`.`etape`
+(`idReservation`,
+`idVol`,
+`numero`,
+`type`)
+VALUES
+("2",
+"5",
+1,
+"aller");
+
+INSERT INTO `bdairfrance`.`etape`
+(`idReservation`,
+`idVol`,
+`numero`,
+`type`)
+VALUES
+("2",
+"6",
+2,
+"aller");
+
+INSERT INTO `bdairfrance`.`etape`
+(`idReservation`,
+`idVol`,
+`numero`,
+`type`)
+VALUES
+("2",
+"7",
+3,
+"aller");
+
+

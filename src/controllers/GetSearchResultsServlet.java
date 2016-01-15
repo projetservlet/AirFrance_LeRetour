@@ -32,7 +32,12 @@ public class GetSearchResultsServlet extends HttpServlet {
         String airportArrival = request.getParameter("airportArrival");
         String dateDeparture = request.getParameter("dateDeparture");
         String dateReturn = request.getParameter("dateReturn");
-        int nbPassengers = Integer.parseInt(request.getParameter("nbPassengers"));
+        int nbPassengers = 1;
+        try {
+        	 nbPassengers = Integer.parseInt(request.getParameter("nbPassengers"));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
         String classe = request.getParameter("classe");
 
         ReservationSession reservationSession = createReservation((String) request.getSession().getAttribute("email"), classe, dateDeparture);
@@ -41,5 +46,10 @@ public class GetSearchResultsServlet extends HttpServlet {
         ArrayList<Vol> listVols = HibernateHelper.retrieveFlights(airportDeparture, airportArrival, dateDeparture);
         request.setAttribute("flights", listVols);
         request.getRequestDispatcher("SearchResults.jsp").forward(request, response);
+        
+        
     }
+    
+    
+    
 }

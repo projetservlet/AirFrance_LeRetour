@@ -181,4 +181,6 @@ public class HibernateHelper {
 		Passager passager = new Passager(reservation, client.getNom(), null);
 		AddObjectInDB(passager);
 	}
+	
+	
 }

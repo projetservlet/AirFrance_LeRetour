@@ -9,9 +9,11 @@
 <html>
 <head>
     <title>Air France: Connexion</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <form action="SigninServlet" method="post">
+ 	<%@include file="Header.jsp"%>
+    <form action="SigninServlet" method="post" class="connexion">
         <label for="email">Email</label>
         <input type="email" id="email" name="email"/>
         <label for="password">Mot de passe</label>
@@ -20,5 +22,6 @@
         <button type="submit">Connexion</button>
         <div style="color: #FF0000;">${errorConnexion}</div>
     </form>
+     <%@include file="Footer.jsp"%>
 </body>
 </html>
