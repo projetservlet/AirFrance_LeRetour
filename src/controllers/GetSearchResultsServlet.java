@@ -1,7 +1,9 @@
 package controllers;
 
 import models.HibernateHelper;
+import models.Reservation;
 import models.Vol;
+import sessionUtils.ReservationSession;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +19,10 @@ import java.util.Date;
  */
 @WebServlet("/GetSearchResultsServlet")
 public class GetSearchResultsServlet extends HttpServlet {
+    protected ReservationSession createReservation(String dateDeparture, String classe, String email) {
+        return new ReservationSession(dateDeparture, classe, email);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -28,6 +34,9 @@ public class GetSearchResultsServlet extends HttpServlet {
         String dateReturn = request.getParameter("dateReturn");
         int nbPassengers = Integer.parseInt(request.getParameter("nbPassengers"));
         String classe = request.getParameter("classe");
+
+        ReservationSession reservationSession = createReservation((String) request.getSession().getAttribute("email"), classe, dateDeparture);
+        request.getSession().setAttribute("reservation", reservationSession);
 
         ArrayList<Vol> listVols = HibernateHelper.retrieveFlights(airportDeparture, airportArrival, dateDeparture);
         request.setAttribute("flights", listVols);

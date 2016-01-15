@@ -1,9 +1,7 @@
 package models;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.io.Serializable;
+import java.util.*;
 
 import jdk.nashorn.internal.runtime.options.Option;
 import org.hibernate.HibernateException;
@@ -90,29 +88,29 @@ public class HibernateHelper {
 		return getResource("Vol");
 	}
 
+	public static Vol getFlightById(String id) throws HibernateException {
+		String conditions = "'" + id + "' = idVol";
+		Iterator iterator = getResource("Vol", conditions).iterator();
+		if (iterator.hasNext()) {
+			return (Vol) iterator.next();
+		} else {
+			return null;
+		}
+	}
+
 	public static ArrayList<Vol> retrieveFlights(String airportDeparture, String airportArrival, String dateDeparture) {
 		String conditions = "'" + airportDeparture + "' = aeroportByIdAeroportDepart AND '" + airportArrival
 				+ "' = aeroportByIdAeroportArrivee AND '" + dateDeparture + "' = dateDepart";
 		return getResource("Vol", conditions);
-		/*
-		 * ArrayList<Vol> flights = Vols(); ArrayList<Vol> filteredFlights = new
-		 * ArrayList<Vol>();
-		 * 
-		 * for (Vol vol: flights) { String airportDepartureCode =
-		 * vol.getAeroportByIdAeroportDepart().getCode(); String
-		 * airportArrivalCode = vol.getAeroportByIdAeroportDepart().getCode();
-		 * Date flightDate = vol.getDateDepart(); if
-		 * (airportDepartureCode.equals(airportDeparture) &&
-		 * airportArrivalCode.equals(airportArrival) &&
-		 * flightDate.compareTo(dateDeparture) == 0 ) {
-		 * filteredFlights.add(vol); } }
-		 * 
-		 * return filteredFlights;
-		 */
 	}
 
 	public static ArrayList<Client> Clients() throws HibernateException {
 		return getResource("Client");
+	}
+
+	public static Client getClientByEmail(String email) throws HibernateException {
+		String conditions = "'" + email + "' = mail";
+		return (Client) getResource("Client", conditions).get(0);
 	}
 
 	public static ArrayList<Pays> Pays() throws HibernateException {
@@ -123,12 +121,28 @@ public class HibernateHelper {
 		return getResource("Reservation");
 	}
 
-	public static void AddObjectInDB(Object Objet) {
+	public static Reservation getClientByIdClientAndDate(String id, String dateDepart) throws HibernateException {
+		String conditions = "" + id + " = client_idClient AND '" + dateDepart + "' = date_depart" ;
+		return (Reservation) getResource("reservation", conditions).get(0);
+	}
+
+
+	/*public static void AddObjectInDB(Object Objet) {
 		Transaction tx = null;
 		Session session = currentSession();
 		tx = session.beginTransaction();
 		session.save(Objet);
 		tx.commit();
+	}*/
+
+	public static <T> T AddObjectInDB(T objet) {
+		Transaction tx = null;
+		Session session = currentSession();
+		tx = session.beginTransaction();
+		T savedObject = (T) session.save(objet);
+		tx.commit();
+
+		return savedObject;
 	}
 
 	public static boolean ClientChecks(String email, String password) {
@@ -156,6 +170,15 @@ public class HibernateHelper {
 			ret.add(a);
 		}
 		return ret;
+	}
 
+	public static Reservation createReservation(Vol flight, Client client, String classe) {
+		Reservation reservation = new Reservation(client, flight.getDateDepart(), null, classe, null, null);
+		return AddObjectInDB(reservation);
+	}
+
+	public static void createPassenger(Reservation reservation, Client client) {
+		Passager passager = new Passager(reservation, client.getNom(), null);
+		AddObjectInDB(passager);
 	}
 }

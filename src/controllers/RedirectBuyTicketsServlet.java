@@ -17,7 +17,15 @@ public class RedirectBuyTicketsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "/BuyTickets.jsp";
+        String url = "";
+
+        if (request.getSession().getAttribute("email") != null) {
+            url = "/BuyTickets.jsp?";
+        } else {
+            url = "/Connexion.jsp";
+            request.getSession().setAttribute("forwardUrl", "/BuyTickets.jsp");
+        }
+
         request.getRequestDispatcher(url).forward(request, response);
     }
 }

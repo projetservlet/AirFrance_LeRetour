@@ -30,17 +30,4 @@ public class RedirectSigninServlet extends HttpServlet {
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
 		requestDispatcher.forward(request, response);
 	}
-
-	protected void testhibernate() {
-		// HibernateHelper.createsessionfactory();
-		ArrayList<Avion> test = new ArrayList<Avion>();
-		try {
-			test = HibernateHelper.Avions();
-		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		int i = 0;
-		// redirection de la requ�te vers cette ressource
-	}
 }

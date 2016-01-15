@@ -32,6 +32,7 @@
             }
         %>
         </ul>
+
         <a href="RedirectHomepageServlet"><button type="button">Retour</button></a>
         <button type="submit">Payer</button>
     </form>
