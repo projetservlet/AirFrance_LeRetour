@@ -133,7 +133,7 @@ public class HibernateHelper {
 	
 	public static boolean ClientChecks(String email,String password) {
 		Session session = currentSession();
-		String hql = "select client.mail from Client as client where client.mail ='"+ email  +"'";
+		String hql = "select client.mail from Client as client where client.mail ='"+ email  +"' and client.password='"+ password  + "' ";
 		Query query = session.createQuery(hql);
 		if ( query.list().size() == 1) {
 			return true;
@@ -141,5 +141,20 @@ public class HibernateHelper {
 		else {
 			return false;
 		}
+	}
+
+	public static ArrayList<Reservation> GetReservationWhereClient(String Mail){
+		
+		Session session = currentSession();
+		String q =  "from Reservation  as reservation where reservation.client.idClient = (select client.idClient from Client as client where client.mail='" + Mail + "'" ;
+		List list = session.createQuery(q ).list();
+		ArrayList<Reservation> ret = new ArrayList<Reservation>();
+		Iterator it = (list.iterator());
+		while (it.hasNext()) {
+			Reservation a = (Reservation) it.next();
+			ret.add(a);
+		}
+		return ret;
+
 	}
 }

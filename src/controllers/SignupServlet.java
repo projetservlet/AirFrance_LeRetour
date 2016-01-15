@@ -65,7 +65,7 @@ public class SignupServlet extends HttpServlet {
 		for (Client c : listeClient) {
 			if (c.getMail().equals(email)) {
 				ClientCanBeCreated = false;
-				request.setAttribute("errorMessageemail", "Un compte utilise dï¿½jï¿½ cet email !");
+				request.setAttribute("errorMessageemail", "Un compte utilise déjà cet email !");
 			}
 		}
 

@@ -1,11 +1,10 @@
-#logo_AF{
-	padding-right: 70%;
-	
+#logo_AF {
+	padding-right: 40%;
 }
+
 header ul {
 	list-style-type: none;
 	display: flex;
-
 }
 
 header li {
@@ -32,17 +31,35 @@ header button {
 	display: inline-block;
 	font-size: 16px;
 }
+header button:hover {
+	background-color: #D8D8D8;
+}
+header button:click  {
+	background-color: #424242
+}
 
-#sign{
+#sign {
 	padding-top: 10px;
 	margin-left: 0%;
 	margin-bottom: :15%;
-	color : #5B5B5B;	
+	color: #5B5B5B;
 }
+
 #accueil {
-margin-left: 20%;
-margin-top: -30px;
+	margin-left: 20%;
+	margin-top: -30px;
 }
-.acc{
+
+.acc {
 	padding-right: 60px;
+}
+
+footer p {
+	padding : 30px;
+	margin-left: 37%;
+	color : white;
+}
+
+footer  {
+	background-color: #08088A;
 }
