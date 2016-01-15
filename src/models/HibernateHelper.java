@@ -1,9 +1,11 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import jdk.nashorn.internal.runtime.options.Option;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -42,15 +44,29 @@ public class HibernateHelper {
 
 	public static <T> ArrayList<T> getResource(String tableName) throws HibernateException {
 		Session session = currentSession();
-		List list = session.createQuery("from " + tableName).list();
 		ArrayList<T> ret = new ArrayList<T>();
 
 		String hql = "from " + tableName;
 		Query query = session.createQuery(hql);
-		List T = query.list();
+		List list = query.list();
 
-		// List T = (List) session.createQuery("from T");
-		Iterator it = (T.iterator());
+		Iterator it = (list.iterator());
+		while (it.hasNext()) {
+			T a = (T) it.next();
+			ret.add(a);
+		}
+		return ret;
+	}
+
+	public static <T> ArrayList<T> getResource(String tableName, String conditions) throws HibernateException {
+		Session session = currentSession();
+		ArrayList<T> ret = new ArrayList<T>();
+
+		String hql = "from " + tableName + " where " + conditions;
+		Query query = session.createQuery(hql);
+		List list = query.list();
+
+		Iterator it = (list.iterator());
 		while (it.hasNext()) {
 			T a = (T) it.next();
 			ret.add(a);
@@ -72,6 +88,27 @@ public class HibernateHelper {
 
 	public static ArrayList<Vol> Vols() throws HibernateException {
 		return getResource("Vol");
+	}
+
+	public static ArrayList<Vol> retrieveFlights(String airportDeparture, String airportArrival, String dateDeparture) {
+		String conditions = "'" + airportDeparture + "' = aeroportByIdAeroportDepart AND '" + airportArrival + "' = aeroportByIdAeroportArrivee AND '" + dateDeparture + "' = dateDepart";
+		return getResource("Vol", conditions);
+		/*ArrayList<Vol> flights = Vols();
+		ArrayList<Vol> filteredFlights = new ArrayList<Vol>();
+
+		for (Vol vol: flights) {
+			String airportDepartureCode = vol.getAeroportByIdAeroportDepart().getCode();
+			String airportArrivalCode = vol.getAeroportByIdAeroportDepart().getCode();
+			Date flightDate = vol.getDateDepart();
+			if (airportDepartureCode.equals(airportDeparture)
+					&& airportArrivalCode.equals(airportArrival)
+					&& flightDate.compareTo(dateDeparture) == 0
+				) {
+				filteredFlights.add(vol);
+			}
+		}
+
+		return filteredFlights;*/
 	}
 
 	public static ArrayList<Client> Clients() throws HibernateException {
@@ -105,6 +142,4 @@ public class HibernateHelper {
 			return false;
 		}
 	}
-	
-
 }
