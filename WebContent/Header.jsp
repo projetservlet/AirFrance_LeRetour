@@ -29,4 +29,5 @@
 		<li class="acc"> <a href="#">VOS RESERVATIONS</a></li>
 	</ul>
 	</div>
+	<hr>
 </header>
