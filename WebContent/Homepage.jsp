@@ -23,7 +23,7 @@
                 ArrayList<Aeroport> airportList = HibernateHelper.Aeroports() /* TODO fetch list of airports */;
                 for (Aeroport airport: airportList) {
             %>
-                <option value="<%=airport.getCode()%>"><%=airport.getNom()%></option>
+                <option value="<%=airport.getIdAeroport()%>"><%=airport.getNom()%></option>
             <%
                 }
             %>
@@ -33,7 +33,7 @@
             <%
                 for (Aeroport airport: airportList) {
             %>
-            <option value="<%=airport.getCode()%>"><%=airport.getNom()%></option>
+            <option value="<%=airport.getIdAeroport()%>"><%=airport.getNom()%></option>
             <%
                 }
             %>
